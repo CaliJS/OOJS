@@ -13,3 +13,5 @@ var nieto = Object.create(hijo);
 padre.metodo();
 hijo.metodo();
 nieto.metodo();
+
+});
