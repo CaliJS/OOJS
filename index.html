@@ -5,6 +5,31 @@
 	<title>OOJS</title>
 </head>
 <body>
-	<script src="herenciaPrototipos.js"></script>
+	<script src="eventtarget.js"></script>
+	<script>
+		var listener1 = function(evt) {
+			'use strict';
+
+			alert(evt.type);
+		};
+
+		var listener2 = function(evt) {
+			'use strict';
+
+			alert(evt.target);
+		};
+
+		var obj = new EventTarget();
+		obj.addListener('load', listener1);
+		obj.addListener('load', listener2);
+
+		obj.__fire({type : 'load'});
+
+		obj.removeListener('load', listener1);
+		obj.removeListener('load', listener2);
+
+		obj.__fire({type : 'load'});
+
+	</script>
 </body>
 </html>
